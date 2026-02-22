@@ -9,9 +9,9 @@ col1,col2,col3=st.columns(3)
 with col1:
     age=st.number_input("Age",18,100,step=1)
 with col2:
-    income=st.number_input("Income",min_value=0,value=500000,step=1000)
+    income=st.number_input("Income",min_value=0,value=1200000,step=1000)
 with col3:
-    loan_amount=st.number_input("Loan Amount",min_value=0,value=1000000,step=1000)
+    loan_amount=st.number_input("Loan Amount",min_value=0,value=8560000,step=1000)
 
 
 loan_to_income_ratio = loan_amount / income if income > 0 else 0
@@ -23,7 +23,7 @@ with col4:
 with col5:
     loan_tenure_months = st.number_input('Loan Tenure (months)', min_value=0, step=1, value=36)
 with col6:
-    avg_dpd_per_delinquency = st.number_input('Avg DPD', min_value=0, max_value=10, value=5)
+    avg_dpd_per_delinquency = st.number_input('Avg DPD', min_value=0, value=20)
 
 col7,col8,col9=st.columns(3)
 
@@ -53,4 +53,6 @@ if st.button("Calculate Risk"):
                                                 residence_type, loan_purpose, loan_type)
 
     
-    
+    st.write(f"Deafult Probability: {probability:.2%}")
+    st.write(f"Credit Score: {credit_score}")
+    st.write(f"Rating: {rating}")
